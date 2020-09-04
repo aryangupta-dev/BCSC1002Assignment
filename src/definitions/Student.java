@@ -7,4 +7,11 @@
 package definitions;
 
 public class Student {
+    // fields necessary for student class.
+
+    private String fullName;
+    private long universityRollNo;
+    private int numberOfBooksIssue;
+    private int [] bookNamesIssued;
+
 }
