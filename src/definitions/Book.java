@@ -11,5 +11,16 @@ public class Book {
     private String bookPrice;
     private String isbnNO;
 
+    public String getBookName() {
+        return bookName;
+    }
+
+    public String getBookPrice() {
+        return bookPrice;
+    }
+
+    public String getIsbnNO() {
+        return isbnNO;
+    }
 
 }
