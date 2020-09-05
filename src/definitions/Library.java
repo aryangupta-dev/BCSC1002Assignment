@@ -7,4 +7,12 @@
 package definitions;
 
 public class Library {
+    // field to store total no of books avaliable in the library.
+    private Book[] totalBooks;
+
+    //getter method for the totalbooks.
+    public Book[] getTotalBooks() {
+        return totalBooks.clone();
+    }
+
 }

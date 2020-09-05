@@ -18,7 +18,7 @@ public class Student {
     private Book[] issuedBooks;
     //getter  methods for the class fields.
 
-    // constructor for the intilisation of values with four parameters in it.
+    // constructor for the intilisation of values with one parameters in it.
     public Student(Book[] issuedBooks) {
         this.issuedBooks = issuedBooks;
 
@@ -70,5 +70,11 @@ public class Student {
         int result = Objects.hash(fullName, universityRollNo, numberOfBooksIssue);
         result = 31 * result + Arrays.hashCode(issuedBooks);
         return result;
+    }
+
+    public Student(String fullName, long universityRollNo, int numberOfBooksIssue) {
+        this.fullName = fullName;
+        this.universityRollNo = universityRollNo;
+        this.numberOfBooksIssue = numberOfBooksIssue;
     }
 }
