@@ -6,6 +6,9 @@
  * */
 package definitions;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class Student {
     // fields necessary for student class.
 
@@ -49,5 +52,23 @@ public class Student {
             System.out.println(issue);
 
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return universityRollNo == student.universityRollNo &&
+                numberOfBooksIssue == student.numberOfBooksIssue &&
+                Objects.equals(fullName, student.fullName) &&
+                Arrays.equals(issuedBooks, student.issuedBooks);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(fullName, universityRollNo, numberOfBooksIssue);
+        result = 31 * result + Arrays.hashCode(issuedBooks);
+        return result;
     }
 }
