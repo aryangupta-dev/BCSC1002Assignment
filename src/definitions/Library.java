@@ -6,6 +6,8 @@
  * */
 package definitions;
 
+import java.util.Arrays;
+
 public class Library {
     // field to store total no of books avaliable in the library.
     private Book[] totalBooks;
@@ -19,5 +21,25 @@ public class Library {
 
     public Book[] getTotalBooks() {
         return totalBooks.clone();
+    }
+
+    @Override
+    public String toString() {
+        return "Library{" +
+                "totalBooks=" + Arrays.toString(totalBooks) +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Library library = (Library) o;
+        return Arrays.equals(totalBooks, library.totalBooks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(totalBooks);
     }
 }
