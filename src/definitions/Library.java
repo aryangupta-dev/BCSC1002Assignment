@@ -11,8 +11,13 @@ public class Library {
     private Book[] totalBooks;
 
     //getter method for the totalbooks.
+
+    //constructor for the initialisation of Book array.
+    public Library(Book[] totalBooks) {
+        this.totalBooks = totalBooks;
+    }
+
     public Book[] getTotalBooks() {
         return totalBooks.clone();
     }
-
 }
