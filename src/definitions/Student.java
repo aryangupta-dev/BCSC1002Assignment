@@ -40,10 +40,9 @@ public class Student {
         return issuedBooks.clone();
     }
 
-    // to string method for printing the method.
-    @Override
-    public String toString() {
-        return " " + getFullName() + " " + getNumberOfBooksIssue() + " " + getUniversityRollNo();
+    public Student(String fullName, long universityRollNo) {
+        this.fullName = fullName;
+        this.universityRollNo = universityRollNo;
     }
 
     //listIssue method to print the no of issued book with price.
@@ -72,9 +71,13 @@ public class Student {
         return result;
     }
 
-    public Student(String fullName, long universityRollNo, int numberOfBooksIssue) {
-        this.fullName = fullName;
-        this.universityRollNo = universityRollNo;
+    public Student(int numberOfBooksIssue) {
         this.numberOfBooksIssue = numberOfBooksIssue;
+    }
+
+    // to string method for printing the method.
+    @Override
+    public String toString() {
+        return " " + getFullName() + " " + getUniversityRollNo();
     }
 }
