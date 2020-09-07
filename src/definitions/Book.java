@@ -12,7 +12,7 @@ public class Book {
     // fields used in the book class.
 
     private String bookName;
-    private String bookPrice;
+    private String authorName;
     private String isbnNUMBER;
 
 
@@ -20,23 +20,25 @@ public class Book {
     public String getBookName() {
         return bookName;
     }
-    public String getBookPrice() {
-        return bookPrice;
+
+    //constructor for value initialisation
+    public Book(String bookName) {
+        this.bookName = bookName;
+        this.authorName = "kumar";
+        this.isbnNUMBER = "6425612155";
     }
 
     public String getIsbnNUMBER() {
         return isbnNUMBER;
     }
-    //constructor for value initialisation
-    public Book(String bookName){
-        this.bookName=bookName;
-        this.bookPrice="150";
-        this.isbnNUMBER="6425612155";
+
+    public String getBookPrice() {
+        return authorName;
     }
 
     @Override
     public String toString() {
-        return "Book name: "+getBookName()+" Book price : "+getBookPrice()+" Book ISBN Number : "+getIsbnNUMBER();
+        return "Book name: " + getBookName() + " Book price : " + getBookPrice() + " Book ISBN Number : " + getIsbnNUMBER();
     }
 
     @Override
@@ -45,12 +47,12 @@ public class Book {
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
         return Objects.equals(bookName, book.bookName) &&
-                Objects.equals(bookPrice, book.bookPrice) &&
+                Objects.equals(authorName, book.authorName) &&
                 Objects.equals(isbnNUMBER, book.isbnNUMBER);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(bookName, bookPrice, isbnNUMBER);
+        return Objects.hash(bookName, authorName, isbnNUMBER);
     }
 }
