@@ -30,7 +30,7 @@ public class FrontDesk {
         Student myacc = new Student(studentName, universityRollNO);
         Student booksIssued = new Student();
         int choice;
-
+        int noOfBooksWantToReturn = 0;
         do {
             System.out.println("1.Issue a book for me .");
             System.out.println("2.Return a book.");
@@ -68,7 +68,7 @@ public class FrontDesk {
                     booksIssued.listIssue();
                     break;
                 case RETURN_A_PREVIOUSLY_ISSUES_BOOKS:
-                    int noOfBooksWantToReturn = sc.nextInt();
+                    noOfBooksWantToReturn = sc.nextInt();
                     for (int i = 0; i < noOfBooksWantToReturn; i++) {
                         int indexofBookReturning = sc.nextInt();
                         if (indexofBookReturning > booksIssued.getIssuedBooks().length) {
@@ -79,7 +79,12 @@ public class FrontDesk {
                     }
                     break;
                 case SHOW_ME_ALL_MY_ISSUES_BOOK:
-                    booksIssued.remainingBook();
+                    if (noOfBooksWantToReturn > 0) {
+                        booksIssued.remainingBook();
+                    } else {
+                        booksIssued.listIssue();
+                    }
+
                     break;
 
             }
