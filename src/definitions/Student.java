@@ -16,11 +16,16 @@ public class Student {
     private long universityRollNo;
     private int numberOfBooksIssue;
     private Book[] issuedBooks;
+    private Book[] bookRemaining;
     //getter  methods for the class fields.
 
     // constructor for the intilisation of values with one parameters in it.
     public Student(Book[] issuedBooks) {
         this.issuedBooks = issuedBooks;
+
+    }
+
+    public Student() {
 
     }
 
@@ -79,5 +84,27 @@ public class Student {
     @Override
     public String toString() {
         return " " + getFullName() + " " + getUniversityRollNo();
+    }
+
+    public void returnBook(int index) {
+        this.bookRemaining = new Book[issuedBooks.length - 1];
+        for (int i = 0, k = 0; i < issuedBooks.length; i++) {
+            if (i == index) {
+                continue;
+            } else {
+                this.bookRemaining[k++] = (issuedBooks[i]);
+            }
+
+        }
+        if (issuedBooks.length > bookRemaining.length) {
+            System.out.println("Book return sucessfully ");
+            System.out.println("Remaining book " + bookRemaining.length);
+        }
+    }
+
+    public void remainingBook() {
+        for (Book remain : bookRemaining) {
+            System.out.println(remain);
+        }
     }
 }

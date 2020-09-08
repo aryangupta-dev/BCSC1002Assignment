@@ -8,6 +8,7 @@ package execution;
 
 import definitions.Book;
 import definitions.Library;
+import definitions.Student;
 
 import java.util.Scanner;
 
@@ -22,7 +23,13 @@ public class FrontDesk {
         Library totalBooks = new Library();
         totalBooks.setLibraryBooks();
         totalBooks.listValue();
-
+        System.out.println("Enter your name");
+        String studentName = sc.nextLine();
+        System.out.println("Enter your university roll no");
+        long universityRollNO = sc.nextLong();
+        Student myacc = new Student(studentName, universityRollNO);
+        Student booksIssued = new Student();
+        int choice;
 
         do {
             System.out.println("1.Issue a book for me .");
@@ -30,13 +37,13 @@ public class FrontDesk {
             System.out.println("3.Show me total issue book");
             System.out.println("4.Exit");
             System.out.println("Enter your choice");
-            int choice = sc.nextInt();
-
+            choice = sc.nextInt();
             switch (choice) {
                 case ISSUE_A_BOOK_FOR_ME:
                     System.out.println("Enter no of books you want to issue");
                     int noOfBooksissue = sc.nextInt();
                     Book[] studentIssue = new Book[noOfBooksissue];
+                    booksIssued = new Student(studentIssue);
                     System.out.println("Enter the book name ,author name and Isbn no");
                     sc.nextLine();
                     for (int i = 0; i < studentIssue.length; i++) {
@@ -54,12 +61,29 @@ public class FrontDesk {
                             System.out.println("Avaliable");
                         } else {
                             System.out.println("Not avaliable");
+                            studentIssue[i] = new Book(null, null, null);
+                        }
+                    }
+                    System.out.println(myacc);
+                    booksIssued.listIssue();
+                    break;
+                case RETURN_A_PREVIOUSLY_ISSUES_BOOKS:
+                    int noOfBooksWantToReturn = sc.nextInt();
+                    for (int i = 0; i < noOfBooksWantToReturn; i++) {
+                        int indexofBookReturning = sc.nextInt();
+                        if (indexofBookReturning > booksIssued.getIssuedBooks().length) {
+                            System.out.println("wrong entry");
+                        } else {
+                            booksIssued.returnBook(indexofBookReturning);
                         }
                     }
                     break;
+                case SHOW_ME_ALL_MY_ISSUES_BOOK:
+                    booksIssued.remainingBook();
+                    break;
 
             }
-        } while (EXIT != 4);
+        } while (choice != EXIT);
 
     }
 }
