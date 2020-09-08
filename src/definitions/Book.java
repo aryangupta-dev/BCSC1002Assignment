@@ -15,30 +15,45 @@ public class Book {
     private String authorName;
     private String isbnNUMBER;
 
+    //constructor for value initialisation
+    public Book(String bookName, String authorName, String isbnNumber) {
+        this.bookName = bookName;
+        this.authorName = authorName;
+        this.isbnNUMBER = isbnNumber;
+    }
+
+    public Book() {
+
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
 
     // get methods for fields.
     public String getBookName() {
         return bookName;
     }
 
-    //constructor for value initialisation
-    public Book(String bookName) {
-        this.bookName = bookName;
-        this.authorName = "kumar";
-        this.isbnNUMBER = "6425612155";
+    public void setIsbnNUMBER(String isbnNUMBER) {
+        this.isbnNUMBER = isbnNUMBER;
+    }
+
+    public String getAuthorName() {
+        return authorName;
     }
 
     public String getIsbnNUMBER() {
         return isbnNUMBER;
     }
 
-    public String getBookPrice() {
-        return authorName;
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
     }
 
     @Override
     public String toString() {
-        return "Book name: " + getBookName() + " Book price : " + getBookPrice() + " Book ISBN Number : " + getIsbnNUMBER();
+        return "Book name: " + getBookName() + " Book price : " + getAuthorName() + " Book ISBN Number : " + getIsbnNUMBER();
     }
 
     @Override

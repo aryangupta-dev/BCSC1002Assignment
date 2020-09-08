@@ -11,16 +11,32 @@ import java.util.Arrays;
 public class Library {
     // field to store total no of books avaliable in the library.
     private Book[] totalBooks;
-
+    private static final int noOfBooks = 2;
     //getter method for the totalbooks.
 
     //constructor for the initialisation of Book array.
-    public Library(Book[] totalBooks) {
-        this.totalBooks = totalBooks;
+    public Library() {
+        this.totalBooks = new Book[noOfBooks];
+        for (int i = 0; i < noOfBooks; i++) {
+            this.totalBooks[i] = new Book();
+        }
+    }
+
+    public void setLibraryBooks() {
+        totalBooks[0].setBookName("java");
+        totalBooks[0].setAuthorName("kumar");
+        totalBooks[0].setIsbnNUMBER("5481626124156");
+        totalBooks[1].setBookName("c++");
+        totalBooks[1].setAuthorName("munshi");
+        totalBooks[1].setIsbnNUMBER("8519164457845");
     }
 
     public Book[] getTotalBooks() {
         return totalBooks.clone();
+    }
+
+    public void setTotalBooks(Book[] totalBooks) {
+        this.totalBooks = totalBooks;
     }
 
     @Override
@@ -41,5 +57,11 @@ public class Library {
     @Override
     public int hashCode() {
         return Arrays.hashCode(totalBooks);
+    }
+
+    public void listValue() {
+        for (Book book : totalBooks) {
+            System.out.println(book);
+        }
     }
 }
